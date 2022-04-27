@@ -1,0 +1,109 @@
+:root {
+    --main-bg-color: #E4D4A8;
+    --grey-color: #777;
+    --primary-btn: #C55A11;
+    --active-btn: #843C0C;
+}
+
+@import url(../fonts/SpaceMono-Regular.ttf);
+
+body{
+    background-color: var(--main-bg-color);
+    font-family: 'Space Mono', monospace;
+    margin: 0px;
+}
+
+/* <<<<< Top Section >>>>> */
+
+/* Github link */
+.corner-top-left{
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    height:74px;
+    transform: rotate(-45deg);
+    left: -70px;
+    top:-15px;
+    filter: drop-shadow(0 1px 5px #000000);
+}
+  
+.corner-top-left:hover{
+    background-color: #222;
+}
+  
+.corner-top-left a img{
+    margin:35px 75px 0px 70px;
+    width:35px;
+}
+
+/* <<<<< Middel Section >>>>> */
+
+/* Landpage content */
+.middleSectionContainer{
+    height: 100%;
+    width: 100%;
+}
+
+.landpagepicture{
+    width: 100%;
+    text-align: center;
+}
+
+.landpagepicture img{
+    width: 60%;
+    margin-top: 25px;
+}
+
+/* Works page content */
+
+
+/* About page content */
+
+
+/* Contact page content */
+
+
+
+/* <<<<< Bottom Section >>>>> */
+
+.nav{
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 16px;
+}
+
+.button{
+    background-color: #C55A11;
+    border: none;
+    color: white;
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 0px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button:hover, .active{
+    background-color: var(--active-btn);
+}
+
+/* <<<<< Media Queries >>>>> */
+
+@media only screen and (min-width: 650px) {
+
+    .button{
+        width: 5rem;
+        padding: 15px 32px;
+        margin: 4px 2px;
+    }
+
+    .landpagepicture img{
+        width: 400px;
+        margin-top: 50px;
+    }
+
+  }

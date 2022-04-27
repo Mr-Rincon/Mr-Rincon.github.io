@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Diego Rincon</title>
+</head>
+<body>
+
+    <!-- Top Section -->
+    <Section class="">
+
+        <!-- Github link -->
+        <div class="corner-top-left">
+            <a href="https://github.com/Mr-Rincon" target="_blank">
+                <img src="img/github.png" alt="">
+            </a>
+        </div>
+
+    </Section>
+
+    <!-- Middle Section -->
+    <Section class="middleSectionContainer">
+
+        <div class="tabContent homeTab" id="home">
+
+            <div class="landpagepicture">
+                <img src="img/developer.png" alt="">
+            </div>
+
+            <div class="landpagetext">
+                <h1 style="font-size: 3rem; text-align: center; margin-bottom: 0px;">Diego Rincon</h1>
+                <h1 style="font-size: 2rem; color: slategray; text-align: center; margin-top: 0px;">SOFTWARE DEVELOPER</h1>
+            </div>
+
+        </div>
+
+        <div class="tabContent wokrsTab" id="works">
+
+            <div class="test">
+                <h1 class="testing">HOLA MUNDO!</h1>
+            </div>
+        
+        </div>
+
+        <div class="tabContent aboutTab" id="about"></div>
+
+        <div class="tabContent contactTab" id="contact"></div>
+
+    </Section>
+
+    <!-- Bottom Section -->
+    <Section class="">
+
+        <div class="nav">
+            <a href="#" class="button tabMenu" onclick="openTab(event, 'home')" id="showTab">HOME</a>
+            <a href="#" class="button tabMenu" onclick="openTab(event, 'works')">WORKS</a>
+            <a href="#" class="button tabMenu" onclick="openTab(event, 'about')">ABOUT</a>
+            <a href="#" class="button tabMenu" onclick="openTab(event, 'contact')">CONTACT</a>
+        </div>
+
+    </Section>
+
+</body>
+
+    <script>
+
+        function openTab(event, tabName) {
+            
+            const tabContent = document.getElementsByClassName("tabContent");
+            for (let i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            
+            const tabMenu = document.getElementsByClassName("tabMenu");
+            for (let i = 0; i < tabMenu.length; i++) {
+                tabMenu[i].className = tabMenu[i].className.replace(" active", "");
+            }
+            
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("showTab").click();
+
+    </script>
+
+</html>
