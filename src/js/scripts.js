@@ -54,3 +54,34 @@ function removeBodyScrolling() {
 function addBodyScrolling() {
     document.body.classList.add('no-scroll');
 }
+
+// Toggle Action
+const toggle = document.getElementById("toggl");
+
+const aiViews = document.querySelectorAll(".ai-view");
+const meViews = document.querySelectorAll(".me-view");
+
+toggle.addEventListener("change", () => {
+        aiViews.forEach(ai => {
+            ai.style.transform = "translateX(-100%)";
+            ai.style.opacity = "0";
+        });
+
+        meViews.forEach(me => {
+            me.style.transform = "translateX(0)";
+            me.style.opacity = "1";
+        });
+
+        if (toggle.checked){
+            aiViews.forEach(ai => {
+                ai.style.transform = "translateX(0)";
+                ai.style.opacity = "1";
+            });
+
+            meViews.forEach(me => {
+                me.style.transform = "translateX(100%)";
+                me.style.opacity = "0";
+            });
+        }
+
+});
