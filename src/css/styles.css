@@ -207,11 +207,12 @@ main p{
   letter-spacing: .5px;
 }
 .profile-photo{
-  width: clamp(200px, 100%, 350px);
+  width: clamp(100px, 100%, 350px);
   float: none;
   object-fit: cover;
   border-radius: 4px;
   display: block;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 480px){
@@ -219,6 +220,10 @@ main p{
     float: left;
     margin: 1rem;
   }
+
+  /* .ai-me-wrapper{
+    min-height: 500px;
+  } */
 }
 .section-title{
   font-family: var(--secondary-font);
@@ -441,22 +446,26 @@ input:checked + .track .off { opacity: 0; }
 
 
 /* AI - Me Styles */
-.ai-me-wrapper{
-  position: relative;
-  width: 100%;
-  height: 100%;
+
+.ai-me-wrapper {
+    display: grid;
+    overflow: hidden;
 }
-.me-view{
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+/* Ambos ocupan la misma celda */
+.ai-view,
+.me-view {
+    grid-area: 1 / 1;
+    transition: transform .4s ease, opacity .4s ease;
 }
-.ai-view{
-  position: ;
-  top: 0;
-  left: -300%;
-  width: 100%;
-  height: 100%;
+
+/* Estado inicial */
+.ai-view {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.me-view {
+    transform: translateX(100%);
+    opacity: 0;
 }
