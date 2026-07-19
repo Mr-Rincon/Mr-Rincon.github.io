@@ -33,14 +33,15 @@ function navIndicator() {
 }
 
 // Overlay funtionality
-overlaySwitch();
-function overlaySwitch(){
-    let overlaySwitch = document.getElementsByClassName("overlaySwitch");
+overlaySwitch("emailOverlaySwitch", "overlay-contactForm");
+function overlaySwitch(overlayActivator, overlayContentId){
+    let overlaySwitch = document.getElementsByClassName(overlayActivator);
+    
     for (let i = 0; i < overlaySwitch.length; i++) {
         overlaySwitch[i].addEventListener("click", function(){
-            const overlayContactForm = document.getElementById("overlay-contactForm");
-            overlayContactForm.classList.toggle("hidden");
-                if (overlayContactForm.classList.contains("hidden")) {
+            const overlayContent = document.getElementById(overlayContentId);
+            overlayContent.classList.toggle("hidden");
+                if (overlayContent.classList.contains("hidden")) {
                     removeBodyScrolling();
                 }else{
                     addBodyScrolling();
@@ -48,40 +49,29 @@ function overlaySwitch(){
         })
     }    
 };
+
 function removeBodyScrolling() {
     document.body.classList.remove('no-scroll');
 }
+
 function addBodyScrolling() {
     document.body.classList.add('no-scroll');
 }
 
 // Toggle Action
-const toggle = document.getElementById("toggl");
+aiToMeToggle();
+function aiToMeToggle() {
+    const wrapper = document.querySelector(".ai-me-wrapper");
+    const switchButton = document.querySelector("#toggl");
 
-const aiViews = document.querySelectorAll(".ai-view");
-const meViews = document.querySelectorAll(".me-view");
+    switchButton.addEventListener("click", () => {
 
-toggle.addEventListener("change", () => {
-        aiViews.forEach(ai => {
-            ai.style.transform = "translateX(-100%)";
-            ai.style.opacity = "0";
-        });
+        const isMeActive = wrapper.classList.toggle("is-me-active");
 
-        meViews.forEach(me => {
-            me.style.transform = "translateX(0)";
-            me.style.opacity = "1";
-        });
+        const activeView = isMeActive
+            ? wrapper.querySelector(".me-view")
+            : wrapper.querySelector(".ai-view");
 
-        if (toggle.checked){
-            aiViews.forEach(ai => {
-                ai.style.transform = "translateX(0)";
-                ai.style.opacity = "1";
-            });
-
-            meViews.forEach(me => {
-                me.style.transform = "translateX(100%)";
-                me.style.opacity = "0";
-            });
-        }
-
-});
+        wrapper.style.height = `${activeView.scrollHeight}px`;
+    });
+}
